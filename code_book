@@ -1,0 +1,55 @@
+Here are the steps I use to clean up the data:
+
+1. download dataset
+  -dataset downloaded and unzip into a folder named "UCI HAR Dataset"
+
+2. load all necessary data
+  -activity_labels  6 rows, 2 columns, saves 6 different activities
+  -features         561 rows, 2 columns, saves 561 value names represending the columns in the big dataset
+  -test data
+    -subject_test   2947 rows, 1 column, saves test group subject id
+    -x_test         2947 rows, 561 columns, saves test data for 2947 activities
+    -y_test         2947 rows, 1 column, saves test group activity id
+  -train data
+    -subject_train   7352 rows, 1 column, saves train group subject id
+    -x_train         7352 rows, 561 columns, saves train data for 7352 activities
+    -y_train         7352 rows, 1 column, saves test train activity id
+
+3. (1) Merges the training and the test sets to create one data set.
+    -x: rbind() merge x_test and x_train
+    -y: rbind() merge y_test and y_train
+    -subject: rbind() merge subject_test and subject_train
+    -data: cbind() merge subject, y, x: 10299 rows, 563 columns, saves subject id, activity id, and all 561 data for 10299 activitis
+
+4. name all column using "subject", "activity", and all data in features
+
+5. (2) Extracts only the measurements on the mean and standard deviation for each measurement. 
+    -use grepl() to create a logical vector representing columns with columns names have "mean" or "std"
+    -add 2 TRUE to the logical vector to make sure also select first two columns of subject and activity
+    -extrac_data    10299 rows, 81 columns, saves subject id, activity id, and 79 values of all 10299 activity
+    
+6. (3) Uses descriptive activity names to name the activities in the data set
+    -use discriptive data in activity_label to represent activity id
+
+7. (4) Appropriately labels the data set with descriptive variable names. 
+    -use gsub() to change
+        -"Acc"" into "Acceleration"
+        -"Gyro" into "Gyroscope"
+        -"Mag" into "Magnitude"
+        -"Freq" into "Frequency"
+        -start with "t" into "Time"
+        -start with "f" into "Frequency"
+    -now that values in extraxt_data are all destriptive 
+
+7. (5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+    -use summarise_all() and group_by() to group both subject and activity and calculate mean for all columns.
+    -new data set is saved in final_data: 180 rows, 81 columns
+    -use write.table() to export final_data into "final_data.txt" file.
+
+
+
+
+
+
+
+
