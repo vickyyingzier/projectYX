@@ -3,7 +3,7 @@ output: html_document
 ---
 # projectYX
 This repository is for final project for Getting and Cleaning Data on Coursera
-
+hi1
 -Original data set is from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 -Files
