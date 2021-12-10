@@ -1,3 +1,9 @@
+The variables in the final_data.txt:
+  ~ subject represent the person who perform the activity, there are total 30 subject
+  ~ activity represent the activity type. There are 6 activities: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+  ~ all the other columns include only mean or std values, and it is the mean of each value for each group(activity and subject).
+
+
 Here are the steps I use to clean up the data:
 
 1. download dataset
