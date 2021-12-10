@@ -58,6 +58,6 @@ colnames(extract_data) <- gsub("^f", "Frequency", colnames(extract_data))
 final_data <- summarise_all(group_by(extract_data, subject, activity), mean)
 
 #save the second tidy data set into final_data.txt
-write.table(final_data, "final_data.txt")
+write.table(final_data, "final_data.txt", row.name=FALSE)
 
 
